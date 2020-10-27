@@ -28,19 +28,19 @@ stamp = start_time
 def base_activity():
     activity = {
         'assets': {
-            'small_image': 'afk',
+            'small_image': 'lang-text',
             'small_text': 'Idle',
             'large_image': 'sublime3',
-            'large_text': 'Sublime Text v%s' % (sublime.version())
+            'large_text': 'Sublime Text'
         },
         'state': settings.get('start_state')
     }
     if settings.get('big_icon'):
         activity['assets'] = {
-            'large_image': 'afk',
+            'large_image': 'lang-text',
             'large_text': 'Idle',
             'small_image': 'sublime3',
-            'small_text': 'Sublime Text v%s' % (sublime.version())
+            'small_text': 'Sublime Text'
         }
     return activity
 
@@ -173,7 +173,6 @@ def handle_activity(view, is_write=False, idle=False):
         lang=language,
         project=get_project_name(window, entity),
         size=view.size(),
-        sizehf=sizehf(view.size()),
         loc=view.rowcol(view.size())[0] + 1,
         folders=len(window.folders()),
     )
